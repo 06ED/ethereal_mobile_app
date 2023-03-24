@@ -30,7 +30,9 @@ class _InputFormFieldState extends State<InputFormField> {
 }
 
 class ValidateFormButton extends StatefulWidget {
-  const ValidateFormButton({Key? key}) : super(key: key);
+  final String text;
+
+  const ValidateFormButton(this.text, {super.key});
 
   @override
   State<ValidateFormButton> createState() => _ValidateFormButtonState();
@@ -40,9 +42,10 @@ class _ValidateFormButtonState extends State<ValidateFormButton> {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-        color: Color.fromARGB(255, 0, 0, 0),
-        onPressed: () {}
+      color: const Color.fromARGB(255, 255, 199, 115),
+      hoverColor: const Color.fromARGB(255, 255, 178, 64),
+      onPressed: () {},
+      child: Text(widget.text),
     );
   }
 }
-

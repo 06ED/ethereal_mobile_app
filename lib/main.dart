@@ -20,18 +20,13 @@ class _MainState extends State<Main> {
             color: Color.fromARGB(255, 100, 0, 0)),
         padding: const EdgeInsets.all(10),
         child: Column(
-          children:  [
-            const InputFormField("Text"),
-            const InputFormField("Text2"),
-            MaterialButton(
-              onPressed: () {},
-              child: const Text("d"),
-            )
+          children:  const [
+            InputFormField("Text"),
+            InputFormField("Text2"),
+            ValidateFormButton("Validate")
           ],
         ),
       ),
     );
   }
-
-  void d() {}
 }
