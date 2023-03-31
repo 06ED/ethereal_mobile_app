@@ -15,12 +15,19 @@ class _MainState extends State<Main> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: const Color.fromARGB(255, 87, 173, 143),
         body: Container(
           decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(10)),
-              color: Color.fromARGB(255, 100, 0, 0)),
-          padding: const EdgeInsets.all(10),
+              color: Color.fromARGB(255, 87, 130, 117)
+          ),
+          margin: const EdgeInsets.symmetric(
+            vertical: 100,
+            horizontal: 40
+          ),
+          padding: const EdgeInsets.all(20),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children:  const [
               InputFormField("Text"),
               InputFormField("Text2"),

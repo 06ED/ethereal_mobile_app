@@ -41,11 +41,21 @@ class ValidateFormButton extends StatefulWidget {
 class _ValidateFormButtonState extends State<ValidateFormButton> {
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      color: const Color.fromARGB(255, 255, 199, 115),
-      hoverColor: const Color.fromARGB(255, 255, 178, 64),
-      onPressed: () {},
-      child: Text(widget.text),
+    return ButtonTheme(
+      height: 60,
+      minWidth: 400,
+      child: MaterialButton(
+        color: const Color.fromARGB(255, 255, 199, 115),
+        hoverColor: const Color.fromARGB(255, 255, 178, 64),
+        onPressed: () {},
+        child: Text(
+          widget.text,
+          style: const TextStyle(
+            fontFamily: "Montserrat",
+            fontSize: 14
+          ),
+        ),
+      ),
     );
   }
 }
