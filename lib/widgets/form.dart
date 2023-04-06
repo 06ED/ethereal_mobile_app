@@ -14,15 +14,19 @@ class _InputFormFieldState extends State<InputFormField> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        color: const Color.fromARGB(255, 255, 255, 255),
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        border: Border.all(
+          color: Colors.black,
+        ),
       ),
       child: TextFormField(
-        decoration: InputDecoration(
-          border: const OutlineInputBorder(),
-          hintText: widget.text,
-        ),
         style: const TextStyle(
-          backgroundColor: Color.fromARGB(255, 255, 255, 255),
+          color: Color.fromARGB(255, 255, 255, 255),
+        ),
+        decoration: InputDecoration(
+          border: const OutlineInputBorder(borderSide: BorderSide.none),
+          hintText: widget.text,
         ),
       ),
     );
@@ -31,8 +35,9 @@ class _InputFormFieldState extends State<InputFormField> {
 
 class ValidateFormButton extends StatefulWidget {
   final String text;
+  final Color color;
 
-  const ValidateFormButton(this.text, {super.key});
+  const ValidateFormButton(this.text, this.color, {super.key});
 
   @override
   State<ValidateFormButton> createState() => _ValidateFormButtonState();
@@ -41,19 +46,22 @@ class ValidateFormButton extends StatefulWidget {
 class _ValidateFormButtonState extends State<ValidateFormButton> {
   @override
   Widget build(BuildContext context) {
-    return ButtonTheme(
+    return SizedBox(
       height: 60,
-      minWidth: 400,
-      child: MaterialButton(
-        color: const Color.fromARGB(255, 255, 199, 115),
-        hoverColor: const Color.fromARGB(255, 255, 178, 64),
+      width: 400,
+      child: TextButton(
+        // hoverColor: const Color.fromARGB(255, 255, 178, 64),
+        style: TextButton.styleFrom(
+          backgroundColor: widget.color,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
+        ),
         onPressed: () {},
         child: Text(
           widget.text,
           style: const TextStyle(
-            fontFamily: "Montserrat",
-            fontSize: 14
-          ),
+              fontFamily: "Montserrat", fontSize: 24, color: Colors.black),
         ),
       ),
     );
