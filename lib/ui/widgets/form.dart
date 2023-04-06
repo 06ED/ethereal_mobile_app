@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class InputFormField extends StatefulWidget {
   final String text;
 
-  const InputFormField(this.text, {Key? key}) : super(key: key);
+  const InputFormField(this.text, {super.key});
 
   @override
   State<InputFormField> createState() => _InputFormFieldState();
@@ -22,7 +22,7 @@ class _InputFormFieldState extends State<InputFormField> {
       ),
       child: TextFormField(
         style: const TextStyle(
-          color: Color.fromARGB(255, 255, 255, 255),
+          color: Color.fromARGB(255, 0, 0, 0),
         ),
         decoration: InputDecoration(
           border: const OutlineInputBorder(borderSide: BorderSide.none),
@@ -36,8 +36,10 @@ class _InputFormFieldState extends State<InputFormField> {
 class ValidateFormButton extends StatefulWidget {
   final String text;
   final Color color;
+  final VoidCallback onPressed;
 
-  const ValidateFormButton(this.text, this.color, {super.key});
+  const ValidateFormButton(this.text, this.color,
+      {required this.onPressed, super.key});
 
   @override
   State<ValidateFormButton> createState() => _ValidateFormButtonState();
@@ -57,7 +59,7 @@ class _ValidateFormButtonState extends State<ValidateFormButton> {
             borderRadius: BorderRadius.circular(5),
           ),
         ),
-        onPressed: () {},
+        onPressed: widget.onPressed,
         child: Text(
           widget.text,
           style: const TextStyle(
