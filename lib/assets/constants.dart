@@ -1,0 +1,1 @@
+const String kDefaultServerApiUrl = "localhost/api";

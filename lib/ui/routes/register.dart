@@ -37,7 +37,7 @@ class _RegisterState extends State<Register> {
             child: const Text("Регистрация",
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 70,
+                  fontSize: 60,
                 )),
           ),
           Container(
