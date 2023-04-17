@@ -13,6 +13,7 @@ class Main extends StatelessWidget {
       routes: {
         "/login": (context) => const Login(),
         "/register": (context) => const Register(),
+        "/profile": (context) => const Profile(),
       },
     );
   }

@@ -49,11 +49,11 @@ class _RegisterState extends State<Register> {
             child: Wrap(
               runSpacing: 20,
               children: [
-                const InputFormField("Логин"),
-                const InputFormField("Почта"),
-                const InputFormField("Пароль"),
+                InputFormField("Логин", controller: TextEditingController(),),
+                InputFormField("Почта", controller: TextEditingController(),),
+                InputFormField("Пароль", controller: TextEditingController(),),
                 ValidateFormButton("Создать аккаунт",
-                    const Color.fromARGB(255, 255, 199, 115),
+                    color: const Color.fromARGB(255, 255, 199, 115),
                     onPressed: () =>
                         Navigator.pushNamed(context, "/register")),
               ],

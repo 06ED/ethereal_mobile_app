@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class InputFormField extends StatefulWidget {
   final String text;
+  final TextEditingController? controller;
 
-  const InputFormField(this.text, {super.key});
+  const InputFormField(this.text, {required this.controller, super.key});
 
   @override
   State<InputFormField> createState() => _InputFormFieldState();
@@ -21,6 +22,7 @@ class _InputFormFieldState extends State<InputFormField> {
         ),
       ),
       child: TextFormField(
+        controller: widget.controller,
         style: const TextStyle(
           color: Color.fromARGB(255, 0, 0, 0),
         ),
@@ -38,8 +40,8 @@ class ValidateFormButton extends StatefulWidget {
   final Color color;
   final VoidCallback onPressed;
 
-  const ValidateFormButton(this.text, this.color,
-      {required this.onPressed, super.key});
+  const ValidateFormButton(this.text,
+      {required this.color, required this.onPressed, super.key});
 
   @override
   State<ValidateFormButton> createState() => _ValidateFormButtonState();
@@ -52,7 +54,6 @@ class _ValidateFormButtonState extends State<ValidateFormButton> {
       height: 60,
       width: 400,
       child: TextButton(
-        // hoverColor: const Color.fromARGB(255, 255, 178, 64),
         style: TextButton.styleFrom(
           backgroundColor: widget.color,
           shape: RoundedRectangleBorder(

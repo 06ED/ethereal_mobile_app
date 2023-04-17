@@ -12,7 +12,11 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final _formKey = GlobalKey<_LoginState>();
+  final _formKey = GlobalKey<FormState>();
+
+  final TextEditingController _loginController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
   bool _visible = true;
 
   @override
@@ -51,30 +55,51 @@ class _LoginState extends State<Login> {
                     margin: const EdgeInsets.symmetric(
                         vertical: 100, horizontal: 40),
                     padding: const EdgeInsets.all(20),
-                    child: Wrap(
-                      runSpacing: 20,
-                      children: [
-                        const InputFormField("Логин"),
-                        const InputFormField("Пароль"),
-                        ValidateFormButton(
-                          "Войти",
-                          const Color.fromARGB(255, 255, 199, 115),
-                          onPressed: () {
-                            context
-                                .read<LoginBloc>()
-                                .add(LoginButtonTappedEvent("aaa"));
-                          },
-                        ),
-                        ValidateFormButton("Создать аккаунт", Colors.white,
-                            onPressed: () =>
-                                Navigator.pushNamed(context, "/register")),
-                      ],
+                    child: Form(
+                      key: _formKey,
+                      child: Wrap(
+                        runSpacing: 20,
+                        children: [
+                          InputFormField(
+                            "Логин",
+                            controller: _loginController,
+                          ),
+                          InputFormField(
+                            "Пароль",
+                            controller: _passwordController,
+                          ),
+                          ValidateFormButton(
+                            "Войти",
+                            color: const Color.fromARGB(255, 255, 199, 115),
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                context.read<LoginBloc>().add(
+                                    LoginButtonTappedEvent(
+                                        _loginController.text,
+                                        _passwordController.text));
+                              }
+                            },
+                          ),
+                          ValidateFormButton("Создать аккаунт",
+                              color: Colors.white,
+                              onPressed: () =>
+                                  Navigator.pushNamed(context, "/register")),
+                        ],
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
-        listener: (_, __) {}
-    );
+        listener: (context, state) {
+          if (state is LoginUserState) {
+            if (state.correct) Navigator.pushNamed(context, "/profile");
+          }
+        });
+  }
+
+  String? _validator(String value) {
+    if (value.trim().isEmpty) return "Необходимое поле";
+    return null;
   }
 }

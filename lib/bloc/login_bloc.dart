@@ -18,6 +18,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   Future<void> _loginButtonEventHandler(LoginButtonTappedEvent event,
       Emitter emit) async {
-
+    print(event.login);
+    print(event.password);
+    // TODO server logic
+    emit(LoginUserState(true));
   }
 }

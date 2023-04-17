@@ -8,5 +8,5 @@ class LoginInitial extends LoginState {}
 class LoginUserState extends LoginState {
   final bool correct;
 
-  LoginUserState({required this.correct});
+  LoginUserState(this.correct);
 }
