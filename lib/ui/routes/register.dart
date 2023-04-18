@@ -62,7 +62,7 @@ class _RegisterState extends State<Register> {
                   "Пароль",
                   controller: TextEditingController(),
                 ),
-                ValidateFormButton("Создать аккаунт",
+                BaseFormButton("Создать аккаунт",
                     color: Colors.white,
                     onPressed: () => Navigator.pushNamed(context, "/register")),
               ],

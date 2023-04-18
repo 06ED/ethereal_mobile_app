@@ -84,7 +84,7 @@ class _LoginState extends State<Login> {
             "Пароль",
             controller: _passwordController,
           ),
-          ValidateFormButton(
+          BaseFormButton(
             "Войти",
             color: Colors.white,
             onPressed: () {
@@ -94,7 +94,7 @@ class _LoginState extends State<Login> {
               }
             },
           ),
-          ValidateFormButton("Создать аккаунт",
+          BaseFormButton("Создать аккаунт",
               color: Colors.white,
               onPressed: () => Navigator.pushNamed(context, "/register")),
         ],

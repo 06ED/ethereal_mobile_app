@@ -35,19 +35,19 @@ class _InputFormFieldState extends State<InputFormField> {
   }
 }
 
-class ValidateFormButton extends StatefulWidget {
+class BaseFormButton extends StatefulWidget {
   final String text;
   final Color color;
   final VoidCallback onPressed;
 
-  const ValidateFormButton(this.text,
+  const BaseFormButton(this.text,
       {required this.color, required this.onPressed, super.key});
 
   @override
-  State<ValidateFormButton> createState() => _ValidateFormButtonState();
+  State<BaseFormButton> createState() => _BaseFormButtonState();
 }
 
-class _ValidateFormButtonState extends State<ValidateFormButton> {
+class _BaseFormButtonState extends State<BaseFormButton> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
