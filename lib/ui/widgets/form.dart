@@ -55,6 +55,7 @@ class _ValidateFormButtonState extends State<ValidateFormButton> {
       width: 400,
       child: TextButton(
         style: TextButton.styleFrom(
+          side: const BorderSide(color: Colors.black),
           backgroundColor: widget.color,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5),

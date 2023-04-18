@@ -15,6 +15,14 @@ class User extends Entity {
     );
   }
 
+  static User getCurrentUser() {
+    return User(
+      id: 1,
+      mail: "hsbest14@yandex.ru",
+      username: "Artyom"
+    );
+  }
+
   void update() {
     // TODO updating user to server
   }

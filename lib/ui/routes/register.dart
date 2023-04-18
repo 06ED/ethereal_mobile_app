@@ -28,7 +28,7 @@ class _RegisterState extends State<Register> {
 
   Widget _buildRegisterWidget() {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 87, 173, 143),
+      backgroundColor: Colors.white,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -36,26 +36,35 @@ class _RegisterState extends State<Register> {
             visible: _visible,
             child: const Text("Регистрация",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 60,
                 )),
           ),
           Container(
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                color: Color.fromARGB(255, 87, 130, 117)),
+            decoration: BoxDecoration(
+                border: Border.all(width: 1, color: Colors.black),
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
+                color: Colors.white),
             margin: const EdgeInsets.symmetric(vertical: 100, horizontal: 40),
             padding: const EdgeInsets.all(20),
             child: Wrap(
               runSpacing: 20,
               children: [
-                InputFormField("Логин", controller: TextEditingController(),),
-                InputFormField("Почта", controller: TextEditingController(),),
-                InputFormField("Пароль", controller: TextEditingController(),),
+                InputFormField(
+                  "Логин",
+                  controller: TextEditingController(),
+                ),
+                InputFormField(
+                  "Почта",
+                  controller: TextEditingController(),
+                ),
+                InputFormField(
+                  "Пароль",
+                  controller: TextEditingController(),
+                ),
                 ValidateFormButton("Создать аккаунт",
-                    color: const Color.fromARGB(255, 255, 199, 115),
-                    onPressed: () =>
-                        Navigator.pushNamed(context, "/register")),
+                    color: Colors.white,
+                    onPressed: () => Navigator.pushNamed(context, "/register")),
               ],
             ),
           ),

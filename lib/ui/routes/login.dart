@@ -29,9 +29,7 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 87, 173, 143),
-        body: _buildLoginWidget());
+    return Scaffold(backgroundColor: Colors.white, body: _buildLoginWidget());
   }
 
   Widget _buildLoginWidget() {
@@ -43,14 +41,17 @@ class _LoginState extends State<Login> {
                   visible: _visible,
                   child: const Text("ETHEREAL",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 70,
                       )),
                 ),
                 Container(
-                  decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      color: Color.fromARGB(255, 87, 130, 117)),
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: Colors.black),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(10),
+                      ),
+                      color: Colors.white),
                   margin:
                       const EdgeInsets.symmetric(vertical: 100, horizontal: 40),
                   padding: const EdgeInsets.all(20),
@@ -60,7 +61,11 @@ class _LoginState extends State<Login> {
             ),
         listener: (context, state) {
           if (state is LoginUserState) {
-            if (state.correct) Navigator.pushNamed(context, "/profile");
+            if (state.correct) {
+              Navigator.pushNamed(context, "/profile");
+            } else {
+              setState(() {});
+            }
           }
         });
   }
@@ -81,7 +86,7 @@ class _LoginState extends State<Login> {
           ),
           ValidateFormButton(
             "Войти",
-            color: const Color.fromARGB(255, 255, 199, 115),
+            color: Colors.white,
             onPressed: () {
               if (_formKey.currentState!.validate()) {
                 context.read<LoginBloc>().add(LoginButtonTappedEvent(
