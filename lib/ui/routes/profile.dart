@@ -11,6 +11,14 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  late Future<User?> _user;
+
+  @override
+  void initState() {
+    _user = User.getCurrentUser();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,14 +40,22 @@ class _ProfileState extends State<Profile> {
               decoration: BoxDecoration(
                   border: Border.all(width: 1, color: Colors.black),
                   borderRadius: const BorderRadius.all(Radius.circular(10))),
-              child: Column(
-                children: [
-                  _buildParam("Логин", User.getCurrentUser().username),
-                  const SizedBox(height: 30),
-                  _buildParam("Почта", User.getCurrentUser().mail),
-                  const SizedBox(height: 30),
-                ],
-              ),
+              child: FutureBuilder<User?>(
+                  future: _user,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return Column(
+                        children: [
+                          _buildParam("Логин", snapshot.data!.username),
+                          const SizedBox(height: 30),
+                          _buildParam("Почта", snapshot.data!.mail),
+                          const SizedBox(height: 30),
+                        ],
+                      );
+                    } else {
+                      return const Text("1");
+                    }
+                  }),
             ),
             BaseFormButton(
               "Изменить пароль",

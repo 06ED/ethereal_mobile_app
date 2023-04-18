@@ -1,1 +1,1 @@
-const String kDefaultServerApiUrl = "localhost/api";
+const String kDefaultServerApiUrl = "192.168.0.14:8080";

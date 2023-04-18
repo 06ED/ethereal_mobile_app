@@ -34,6 +34,7 @@ dependencies:
   flutter_keyboard_visibility: ^5.4.0
   convex_bottom_bar: ^3.0.0
   path_provider: ^2.0.14
+  http: ^0.13.5
 
 
   # The following adds the Cupertino Icons font to your application.
