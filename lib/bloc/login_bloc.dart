@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:developer';
+import 'dart:math' as math;
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
@@ -19,14 +21,18 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   Future<void> _loginButtonEventHandler(LoginButtonTappedEvent event,
       Emitter emit) async {
     var client = Client();
+    log(Uri.parse(kDefaultServerApiUrl).toString());
     try {
       var response = await client.post(
-        Uri.http(kDefaultServerApiUrl, "api"),
+        Uri.parse(kDefaultServerApiUrl),
         body: {
           "username": event.login,
           "password": event.password
         }
       );
+      log(utf8.decode(response.bodyBytes));
+      log(response.body);
+      log(response.isRedirect.toString());
       var decodedResponse = jsonDecode(utf8.decode(response.bodyBytes)) as Map;
 
       if (decodedResponse.containsKey("err")) {
