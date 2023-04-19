@@ -23,56 +23,57 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Wrap(
-          runSpacing: 10,
-          alignment: WrapAlignment.center,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(100),
-              child: Image.asset(
-                "assets/ico.png",
-                width: 200,
-                height: 200,
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 85, vertical: 10),
-              decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: Colors.black),
-                  borderRadius: const BorderRadius.all(Radius.circular(10))),
-              child: FutureBuilder<User?>(
-                  future: _user,
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      return Column(
-                        children: [
-                          _buildParam("Логин", snapshot.data!.username),
-                          const SizedBox(height: 30),
-                          _buildParam("Почта", snapshot.data!.mail),
-                          const SizedBox(height: 30),
-                        ],
-                      );
-                    } else {
-                      return const Text("1");
-                    }
-                  }),
-            ),
-            BaseFormButton(
-              "Изменить пароль",
-              color: Colors.white,
-              onPressed: () => Navigator.pushNamed(context, "/change_password"),
-            ),
-            BaseFormButton(
-              "Изменить данные",
-              color: Colors.white,
-              onPressed: () => Navigator.pushNamed(context, "/change_data"),
-            ),
-            BaseFormButton(
-              "Выйти",
-              color: Colors.redAccent,
-              onPressed: () => Navigator.pushNamed(context, "/login"),
-            ),
-          ],
+        child: FutureBuilder<User?>(
+          future: _user,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Wrap(
+                runSpacing: 10,
+                alignment: WrapAlignment.center,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: Image.memory(
+                      snapshot.data!.img,
+                      width: 200,
+                      height: 200,
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 85, vertical: 10),
+                    decoration: BoxDecoration(
+                        border: Border.all(width: 1, color: Colors.black),
+                        borderRadius: const BorderRadius.all(Radius.circular(10))),
+                    child: Column(
+                      children: [
+                        _buildParam("Логин", snapshot.data!.username),
+                        const SizedBox(height: 30),
+                        _buildParam("Почта", snapshot.data!.mail),
+                        const SizedBox(height: 30),
+                      ],
+                    ),
+                  ),
+                  BaseFormButton(
+                    "Изменить пароль",
+                    color: Colors.white,
+                    onPressed: () => Navigator.pushNamed(context, "/change_password"),
+                  ),
+                  BaseFormButton(
+                    "Изменить данные",
+                    color: Colors.white,
+                    onPressed: () => Navigator.pushNamed(context, "/change_data"),
+                  ),
+                  BaseFormButton(
+                    "Выйти",
+                    color: Colors.redAccent,
+                    onPressed: () => Navigator.pushNamed(context, "/login"),
+                  ),
+                ],
+              );
+            } else {
+              return const Text("1");
+            }
+          }
         ),
       ),
       bottomNavigationBar: const DefaultNavigationBar(),

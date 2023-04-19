@@ -22,7 +22,7 @@ class User extends Entity {
     return User(
         id: mapEntity["id"],
         mail: mapEntity["mail"],
-        username: mapEntity["username"],
+        username: mapEntity["nickname"],
         img: bytes
     );
   }
@@ -36,7 +36,7 @@ class User extends Entity {
     return User(
       id: mapUser["id"],
       mail: mapUser["mail"],
-      username: mapUser["username"],
+      username: mapUser["nickname"],
       img: base64Decode(mapUser["image"])
     );
   }
@@ -49,7 +49,7 @@ class User extends Entity {
     final stringUser = jsonEncode({
       "id": user.id,
       "mail": user.mail,
-      "username": user.username,
+      "nickname": user.username,
       "image": base64Encode(user.img)
     });
     await file.writeAsString(stringUser);
