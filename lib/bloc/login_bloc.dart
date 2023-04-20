@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
@@ -21,10 +20,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       Emitter emit) async {
     final client = Client();
     try {
-      log(event.password);
-      log(event.login);
-      var response = await client.post(
-          Uri.parse(kDefaultServerApiUrl),
+      final response = await client.post(
+          Uri.parse("$kDefaultServerApiUrl/login/"),
           headers: {"content-type": "application/json"},
           body: json.encode({"nickname": event.login, "password": event.password})
       );

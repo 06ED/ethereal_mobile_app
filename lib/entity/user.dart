@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:path_provider/path_provider.dart';
@@ -33,6 +34,7 @@ class User extends Entity {
     if (!await file.exists()) return null;
 
     var mapUser = jsonDecode(await file.readAsString());
+
     return User(
       id: mapUser["id"],
       mail: mapUser["mail"],

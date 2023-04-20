@@ -1,1 +1,1 @@
-const String kDefaultServerApiUrl = "http://192.168.0.12:8080/api/login/";
+const String kDefaultServerApiUrl = "http://192.168.0.14:8080/api";

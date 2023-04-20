@@ -2,7 +2,9 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 
 class DefaultNavigationBar extends StatefulWidget {
-  const DefaultNavigationBar({Key? key}) : super(key: key);
+  final int index;
+
+  const DefaultNavigationBar(this.index, {Key? key}) : super(key: key);
 
   @override
   State<DefaultNavigationBar> createState() => _DefaultNavigationBarState();
@@ -23,7 +25,7 @@ class _DefaultNavigationBarState extends State<DefaultNavigationBar> {
       color: Colors.black,
       activeColor: Colors.black,
       backgroundColor: Colors.white,
-      initialActiveIndex: 2,
+      initialActiveIndex: widget.index,
       items: const [
         TabItem(icon: Icons.accessibility, title: "Лента"),
         TabItem(icon: Icons.add_a_photo_outlined, title: "Гардероб"),
