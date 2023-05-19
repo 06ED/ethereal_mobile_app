@@ -14,6 +14,17 @@ class ClothesType extends Entity {
   }
 }
 
+class ClothesStyle extends Entity {
+  final int id;
+  final String name;
+
+  ClothesStyle({required this.id, required this.name});
+
+  static ClothesStyle getFrom(Map mapEntity) {
+    return ClothesStyle(id: mapEntity["id"], name: mapEntity["name"]);
+  }
+}
+
 class ClothesSeason extends Entity {
   final int id;
   final String name;

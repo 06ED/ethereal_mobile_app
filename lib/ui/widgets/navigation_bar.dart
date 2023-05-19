@@ -11,7 +11,7 @@ class DefaultNavigationBar extends StatefulWidget {
 }
 
 class _DefaultNavigationBarState extends State<DefaultNavigationBar> {
-  static const _routeIndex = {
+  static const _kRouteIndex = {
     0: "/wall",
     1: "/wardrobe",
     2: "/profile",
@@ -33,7 +33,7 @@ class _DefaultNavigationBarState extends State<DefaultNavigationBar> {
         TabItem(icon: Icons.star, title: "Избранное"),
         TabItem(icon: Icons.account_balance, title: "Образы",)
       ],
-      onTap: (index) => Navigator.pushNamed(context, _routeIndex[index]!),
+      onTap: (index) => Navigator.pushNamed(context, _kRouteIndex[index]!),
     );
   }
 }

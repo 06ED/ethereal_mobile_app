@@ -71,7 +71,14 @@ class _ProfileState extends State<Profile> {
                 ],
               );
             } else {
-              return const Text("1");
+              return const Scaffold(
+                backgroundColor: Colors.black,
+                body: Center(
+                  child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white)),
+                ),
+                bottomNavigationBar: DefaultNavigationBar(2),
+              );
             }
           }
         ),
