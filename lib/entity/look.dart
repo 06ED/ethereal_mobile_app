@@ -17,10 +17,9 @@ class Look extends Entity {
     required this.clothes});
 
   static Look getFrom(Map mapEntity) {
-    List allClothes = mapEntity["clothes"];
     const all = <Clothes>[];
 
-    for (var element in allClothes) {
+    for (var element in mapEntity["clothes"]) {
       all.add(Clothes.getFrom(element));
     }
 

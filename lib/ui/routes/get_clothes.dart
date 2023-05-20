@@ -48,6 +48,7 @@ class _GetClothesState extends State<GetClothes> {
             _boolStyles.add(false);
           }
         }
+
         return Scaffold(
           body: Container(
             decoration: BoxDecoration(

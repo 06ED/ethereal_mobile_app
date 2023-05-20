@@ -3,7 +3,6 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:ethereal_app/assets/constants.dart';
-import 'package:ethereal_app/ui/routes/get_clothes.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart' as http;
 
