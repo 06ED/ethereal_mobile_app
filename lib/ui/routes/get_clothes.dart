@@ -17,6 +17,8 @@ class _GetClothesState extends State<GetClothes> {
   late List<ClothesType> _types;
   late List<ClothesSeason> _seasons;
 
+  late BuildContext _buildContext;
+
   final _listTypes = <Widget>[];
   final _listStyles = <Widget>[];
   final _boolTypes = <bool>[];
@@ -28,6 +30,8 @@ class _GetClothesState extends State<GetClothes> {
   Widget build(BuildContext context) {
     return BlocBuilder<GetClothesBloc, GetClothesState>(
         builder: (context, state) {
+      _buildContext = context;
+
       if (state is GetClothesInitState) {
         _seasons = state.seasons;
         _types = state.types;
@@ -112,7 +116,8 @@ class _GetClothesState extends State<GetClothes> {
         );
       }
       if (state is SetClothesState) {
-        Navigator.pushNamed(context, "/wardrobe");
+        Navigator.popUntil(context, (route) => !route.isCurrent);
+        Navigator.popAndPushNamed(context, "/wardrobe");
       }
       return const Scaffold(
         backgroundColor: Colors.black,
@@ -181,9 +186,11 @@ class _GetClothesState extends State<GetClothes> {
                     BaseFormButton(
                       "Добавить",
                       color: Colors.white,
-                      onPressed: () => context
-                          .read<GetClothesBloc>()
-                          .add(SetClothesParamsEvent(clothes: clothes)),
+                      onPressed: () {
+                        _buildContext
+                            .read<GetClothesBloc>()
+                            .add(SetClothesParamsEvent(clothes: clothes));
+                      },
                     ),
                   ],
                 ),

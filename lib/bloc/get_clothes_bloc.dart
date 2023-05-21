@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:ethereal_app/assets/constants.dart';
@@ -29,6 +30,7 @@ class GetClothesBloc extends Bloc<GetClothesEvent, GetClothesState> {
       final response = await client.get(Uri.parse("$kDefaultServerApiUrl/ci/"));
       final decodedResponse =
           jsonDecode(utf8.decode(response.bodyBytes)) as Map;
+      log(decodedResponse.toString());
 
       for (var type in decodedResponse["types"]) {
         clothesTypesList.add(ClothesType.getFrom(type));

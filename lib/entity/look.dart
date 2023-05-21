@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:ethereal_app/entity/clothes.dart';
 import 'package:ethereal_app/entity/entity.dart';
 
@@ -17,7 +19,7 @@ class Look extends Entity {
     required this.clothes});
 
   static Look getFrom(Map mapEntity) {
-    const all = <Clothes>[];
+    var all = <Clothes>[];
 
     for (var element in mapEntity["clothes"]) {
       all.add(Clothes.getFrom(element));

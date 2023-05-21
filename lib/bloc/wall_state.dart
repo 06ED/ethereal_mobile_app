@@ -10,3 +10,5 @@ class WallInitState extends WallState {
 
   WallInitState({required this.looks});
 }
+
+class AddedToFavoriteState extends WallState {}
