@@ -16,7 +16,7 @@ class Favorite extends StatefulWidget {
 class _FavoriteState extends State<Favorite> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder(builder: (context, state) {
+    return BlocBuilder<FavoriteBloc, FavoriteState>(builder: (context, state) {
       if (state is FavoriteInitState) {
         return Scaffold(
           body: ListView.builder(

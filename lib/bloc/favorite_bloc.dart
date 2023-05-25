@@ -50,7 +50,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
 
     try {
       await client.post(
-          Uri.parse("$kDefaultServerApiUrl/getFavoriteLooks/"),
+          Uri.parse("$kDefaultServerApiUrl/removeFavoriteLook/"),
           headers: {"content-type": "application/json"},
           body: jsonEncode({"user_id": user?.id, "look_id": event.look.id}));
     } finally {
