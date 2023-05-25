@@ -14,6 +14,7 @@ part 'login_state.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(LoginInitial()) {
     on<LoginButtonTappedEvent>(_loginButtonEventHandler);
+    on<LoginInitEvent>(_onInit);
   }
 
   Future<void> _loginButtonEventHandler(LoginButtonTappedEvent event,
@@ -38,6 +39,13 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     } finally {
       client.close();
     }
+    emit(LoginUserState(true));
+  }
+
+  Future<void> _onInit(LoginInitEvent event, Emitter emit) async {
+    final user = await User.getCurrentUser();
+    if (user == null) return;
+
     emit(LoginUserState(true));
   }
 }

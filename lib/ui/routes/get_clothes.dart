@@ -116,8 +116,7 @@ class _GetClothesState extends State<GetClothes> {
         );
       }
       if (state is SetClothesState) {
-        Navigator.popUntil(context, (route) => !route.isCurrent);
-        Navigator.popAndPushNamed(context, "/wardrobe");
+        Navigator.pushNamed(context, "/wardrobe");
       }
       return const Scaffold(
         backgroundColor: Colors.black,

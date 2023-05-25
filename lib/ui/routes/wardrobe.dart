@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -59,50 +57,7 @@ class _WardrobeState extends State<Wardrobe> {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(
-              builder: (BuildContext context) => Scaffold(
-                appBar: AppBar(
-                  title: Text(clothes.name),
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.black,
-                  shape: const Border(
-                      bottom: BorderSide(color: Colors.black, width: 2)),
-                ),
-                body: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(width: 1, color: Colors.black),
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(10),
-                          ),
-                          color: Colors.white),
-                      margin: const EdgeInsets.all(10),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(15),
-                        child: Image.memory(clothes.img),
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(width: 1, color: Colors.black),
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(10),
-                          ),
-                          color: Colors.white),
-                      child: Wrap(
-                        runSpacing: 15,
-                        children: [
-                          _buildRow("Сезон", clothes.season.name),
-                          _buildRow("Тип одежды", clothes.type.name),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            _buildInfo(clothes),
           );
         },
         child: Column(
@@ -115,6 +70,53 @@ class _WardrobeState extends State<Wardrobe> {
               clothes.name,
               style: const TextStyle(fontFamily: "Montserrat", fontSize: 20),
             )
+          ],
+        ),
+      ),
+    );
+  }
+
+  MaterialPageRoute _buildInfo(Clothes clothes) {
+    return MaterialPageRoute(
+      builder: (BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: Text(clothes.name),
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+          shape: const Border(
+              bottom: BorderSide(color: Colors.black, width: 2)),
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: Colors.black),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                  color: Colors.white),
+              margin: const EdgeInsets.all(10),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.memory(clothes.img),
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: Colors.black),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                  color: Colors.white),
+              child: Wrap(
+                runSpacing: 15,
+                children: [
+                  _buildRow("Сезон", clothes.season.name),
+                  _buildRow("Тип одежды", clothes.type.name),
+                ],
+              ),
+            ),
           ],
         ),
       ),

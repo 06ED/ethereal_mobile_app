@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/custom_looks_bloc.dart';
-import '../../bloc/favorite_bloc.dart';
 import '../../entity/clothes.dart';
 import '../../entity/look.dart';
 import '../widgets/navigation_bar.dart';
@@ -16,6 +15,7 @@ class CustomLooks extends StatefulWidget {
 }
 
 class _CustomLooksState extends State<CustomLooks> {
+  static const _icons = <String, IconData>{"Бизнесс": Icons.business_center_outlined, "Казуальный": Icons.casino_outlined, "Спортивный": Icons.sports_baseball_outlined };
   late Map<String, List<Look>> looks;
 
   @override
@@ -44,7 +44,8 @@ class _CustomLooksState extends State<CustomLooks> {
                   ));
                   return;
                 }
-                Navigator.push(context, _buildRoute(entry.value));
+                Navigator.push(
+                    context, _buildRoute(entry.value, "${entry.key} стиль"));
               },
               child: Container(
                 decoration: BoxDecoration(
@@ -57,8 +58,8 @@ class _CustomLooksState extends State<CustomLooks> {
                 padding: const EdgeInsets.all(20),
                 child: Column(
                   children: [
-                    const Icon(
-                      Icons.business_center,
+                    Icon(
+                      _icons[entry.key],
                       size: 100,
                     ),
                     Text(
@@ -108,9 +109,16 @@ class _CustomLooksState extends State<CustomLooks> {
     );
   }
 
-  MaterialPageRoute _buildRoute(List<Look> looks) {
+  MaterialPageRoute _buildRoute(List<Look> looks, String title) {
     return MaterialPageRoute(
         builder: (context) => Scaffold(
+              appBar: AppBar(
+                title: Text(title),
+                backgroundColor: Colors.white,
+                foregroundColor: Colors.black,
+                shape: const Border(
+                    bottom: BorderSide(color: Colors.black, width: 2)),
+              ),
               body: ListView.builder(
                   itemCount: looks.length,
                   itemBuilder: (context, index) => _buildItem(looks[index])),

@@ -64,7 +64,15 @@ class _LoginState extends State<Login> {
             if (state.correct) {
               Navigator.pushNamed(context, "/profile");
             } else {
-              setState(() {});
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                behavior: SnackBarBehavior.floating,
+                margin: EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+                content: Text(
+                  "Неправильный логин или пароль",
+                  style: TextStyle(fontSize: 20, fontFamily: "Montserrat"),
+                ),
+                dismissDirection: DismissDirection.startToEnd,
+              ));
             }
           }
         });

@@ -21,7 +21,7 @@ class Main extends StatelessWidget {
       initialRoute: "/login",
       routes: {
         "/login": (context) => BlocProvider(
-              create: (context) => LoginBloc(),
+              create: (context) => LoginBloc()..add(LoginInitEvent()),
               child: const Login(),
             ),
         "/register": (context) => const Register(),

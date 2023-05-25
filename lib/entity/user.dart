@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:path_provider/path_provider.dart';
@@ -41,6 +40,12 @@ class User extends Entity {
       username: mapUser["nickname"],
       img: base64Decode(mapUser["image"])
     );
+  }
+
+  static Future<void> deleteCurrentUser() async {
+    final dir = await getApplicationDocumentsDirectory();
+    final file = File("${dir.path}/user.json");
+    if (await file.exists()) await file.delete();
   }
 
   static Future<void> setCurrentUser(User user) async {
