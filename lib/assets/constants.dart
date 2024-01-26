@@ -1,1 +1,1 @@
-const String kDefaultServerApiUrl = "http://192.168.0.12:8080/api";
+const String kDefaultServerApiUrl = "https://etherealweb.onrender.com/api";
