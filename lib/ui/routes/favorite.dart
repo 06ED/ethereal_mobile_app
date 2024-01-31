@@ -1,4 +1,4 @@
-import 'package:ethereal_app/bloc/favorite_bloc.dart';
+import 'package:ethereal_app/bloc/favorite/favorite_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -8,7 +8,7 @@ class User extends Entity {
   final int id;
   String username;
   String mail;
-  Uint8List img;
+  Uint8List? img;
 
   User(
       {required this.id,
@@ -17,7 +17,10 @@ class User extends Entity {
       required this.img});
 
   static User fromMap(Map mapEntity) {
-    var bytes = base64Decode(mapEntity["image"]);
+    Uint8List? bytes;
+    if (mapEntity.containsKey("image")) {
+      bytes = base64Decode(mapEntity["image"]);
+    }
 
     return User(
         id: mapEntity["id"],
@@ -57,12 +60,8 @@ class User extends Entity {
       "id": user.id,
       "mail": user.mail,
       "nickname": user.username,
-      "image": base64Encode(user.img)
+      "image": user.img != null ? base64Encode(user.img!) : null,
     });
     await file.writeAsString(stringUser);
-  }
-
-  void update() {
-    // TODO updating user to server
   }
 }

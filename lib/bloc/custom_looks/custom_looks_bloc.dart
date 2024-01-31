@@ -7,11 +7,10 @@ import 'package:meta/meta.dart';
 
 import 'package:http/http.dart' as http;
 
-import '../assets/constants.dart';
-import '../entity/user.dart';
+import '/assets/constants.dart';
+import '/entity/user.dart';
 
 part 'custom_looks_event.dart';
-
 part 'custom_looks_state.dart';
 
 class CustomLooksBloc extends Bloc<CustomLooksEvent, CustomLooksState> {

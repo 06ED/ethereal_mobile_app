@@ -2,7 +2,7 @@ import 'package:ethereal_app/entity/clothes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../bloc/get_clothes_bloc.dart';
+import '../../bloc/get_clothes/get_clothes_bloc.dart';
 import '../widgets/form.dart';
 import '../widgets/navigation_bar.dart';
 
@@ -116,7 +116,9 @@ class _GetClothesState extends State<GetClothes> {
         );
       }
       if (state is SetClothesState) {
-        Navigator.pushNamed(context, "/wardrobe");
+        Future.delayed(Duration.zero, () {
+          Navigator.pushReplacementNamed(context, "/wardrobe");
+        });
       }
       return const Scaffold(
         backgroundColor: Colors.black,

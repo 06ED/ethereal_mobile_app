@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../bloc/change_data_bloc.dart';
+import '../../bloc/change_data/change_data_bloc.dart';
 import '../widgets/form.dart';
 
 class ChangeData extends StatefulWidget {
@@ -36,7 +36,7 @@ class _ChangeDataState extends State<ChangeData> {
             ),
         listener: (context, state) {
           if (state is UserChangedDataState) {
-            Navigator.pushNamed(context, "/profile");
+            Navigator.pushReplacementNamed(context, "/profile");
           }
         });
   }

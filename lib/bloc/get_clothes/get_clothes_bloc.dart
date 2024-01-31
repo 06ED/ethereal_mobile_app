@@ -7,11 +7,10 @@ import 'package:ethereal_app/assets/constants.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart' as http;
 
-import '../entity/clothes.dart';
-import '../entity/user.dart';
+import '../../entity/clothes.dart';
+import '../../entity/user.dart';
 
 part 'get_clothes_event.dart';
-
 part 'get_clothes_state.dart';
 
 class GetClothesBloc extends Bloc<GetClothesEvent, GetClothesState> {

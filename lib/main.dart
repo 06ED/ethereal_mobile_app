@@ -1,14 +1,15 @@
-import 'package:ethereal_app/bloc/change_data_bloc.dart';
-import 'package:ethereal_app/bloc/custom_looks_bloc.dart';
-import 'package:ethereal_app/bloc/favorite_bloc.dart';
-import 'package:ethereal_app/bloc/get_clothes_bloc.dart';
-import 'package:ethereal_app/bloc/login_bloc.dart';
-import 'package:ethereal_app/bloc/wall_bloc.dart';
-import 'package:ethereal_app/bloc/wardrobe_bloc.dart';
+import 'package:ethereal_app/bloc/change_data/change_data_bloc.dart';
+import 'package:ethereal_app/bloc/favorite/favorite_bloc.dart';
+import 'package:ethereal_app/bloc/get_clothes/get_clothes_bloc.dart';
+import 'package:ethereal_app/bloc/login/login_bloc.dart';
+import 'package:ethereal_app/bloc/wall/wall_bloc.dart';
+import 'package:ethereal_app/bloc/wardrobe/wardrobe_bloc.dart';
 import 'package:ethereal_app/ui/routes.dart';
 import 'package:ethereal_app/ui/routes/custom_looks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'bloc/custom_looks/custom_looks_bloc.dart';
 
 void main() => runApp(const Main());
 
@@ -19,6 +20,8 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: "/login",
+      debugShowCheckedModeBanner: false,
+      debugShowMaterialGrid: false,
       routes: {
         "/login": (context) => BlocProvider(
               create: (context) => LoginBloc()..add(LoginInitEvent()),

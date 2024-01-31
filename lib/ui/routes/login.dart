@@ -1,4 +1,4 @@
-import 'package:ethereal_app/bloc/login_bloc.dart';
+import 'package:ethereal_app/bloc/login/login_bloc.dart';
 import 'package:ethereal_app/ui/widgets/form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -62,7 +62,7 @@ class _LoginState extends State<Login> {
         listener: (context, state) {
           if (state is LoginUserState) {
             if (state.correct) {
-              Navigator.pushNamed(context, "/profile");
+              Navigator.pushReplacementNamed(context, "/profile");
             } else {
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                 behavior: SnackBarBehavior.floating,
@@ -104,7 +104,8 @@ class _LoginState extends State<Login> {
           ),
           BaseFormButton("Создать аккаунт",
               color: Colors.white,
-              onPressed: () => Navigator.pushNamed(context, "/register")),
+              onPressed: () =>
+                  Navigator.pushReplacementNamed(context, "/register")),
         ],
       ),
     );

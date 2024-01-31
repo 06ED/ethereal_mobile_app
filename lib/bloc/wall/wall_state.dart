@@ -1,4 +1,4 @@
-part of "wall_bloc.dart";
+part of 'wall_bloc.dart';
 
 @immutable
 abstract class WallState {}

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../bloc/wardrobe_bloc.dart';
+import '../../bloc/wardrobe/wardrobe_bloc.dart';
 import '../../entity/clothes.dart';
 import '../widgets/navigation_bar.dart';
 
@@ -25,9 +25,13 @@ class _WardrobeState extends State<Wardrobe> {
                   _buildElement(state.clothes[index]),
             ),
             floatingActionButton: FloatingActionButton(
-              onPressed: () => Navigator.pushNamed(context, "/add_clothes"),
+              onPressed: () =>
+                  Navigator.pushReplacementNamed(context, "/add_clothes"),
               backgroundColor: Colors.black,
-              child: const Icon(Icons.add),
+              child: const Icon(
+                Icons.add,
+                color: Colors.white,
+              ),
             ),
             bottomNavigationBar: const DefaultNavigationBar(1),
           );
@@ -55,7 +59,7 @@ class _WardrobeState extends State<Wardrobe> {
       margin: const EdgeInsets.all(30),
       child: GestureDetector(
         onTap: () {
-          Navigator.push(
+          Navigator.pushReplacement(
             context,
             _buildInfo(clothes),
           );
@@ -83,8 +87,8 @@ class _WardrobeState extends State<Wardrobe> {
           title: Text(clothes.name),
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,
-          shape: const Border(
-              bottom: BorderSide(color: Colors.black, width: 2)),
+          shape:
+              const Border(bottom: BorderSide(color: Colors.black, width: 2)),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

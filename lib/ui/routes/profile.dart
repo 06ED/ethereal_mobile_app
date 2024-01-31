@@ -33,11 +33,17 @@ class _ProfileState extends State<Profile> {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(100),
-                      child: Image.memory(
-                        snapshot.data!.img,
-                        width: 200,
-                        height: 200,
-                      ),
+                      child: snapshot.data!.img != null
+                          ? Image.memory(
+                              snapshot.data!.img!,
+                              width: 200,
+                              height: 200,
+                            )
+                          : Image.network(
+                              "https://static.thenounproject.com/png/4404607-200.png",
+                              width: 200,
+                              height: 200,
+                            ),
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(
@@ -54,18 +60,6 @@ class _ProfileState extends State<Profile> {
                           const SizedBox(height: 30),
                         ],
                       ),
-                    ),
-                    BaseFormButton(
-                      "Изменить пароль",
-                      color: Colors.white,
-                      onPressed: () =>
-                          Navigator.pushNamed(context, "/change_password"),
-                    ),
-                    BaseFormButton(
-                      "Изменить данные",
-                      color: Colors.white,
-                      onPressed: () =>
-                          Navigator.pushNamed(context, "/change_data"),
                     ),
                     BaseFormButton(
                       "Выйти",

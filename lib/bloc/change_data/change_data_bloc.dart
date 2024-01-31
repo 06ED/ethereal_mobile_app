@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart' as http;
 
-import '../entity/user.dart';
+import '../../entity/user.dart';
 
 part 'change_data_event.dart';
 part 'change_data_state.dart';

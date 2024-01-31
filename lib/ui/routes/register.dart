@@ -64,7 +64,7 @@ class _RegisterState extends State<Register> {
                 ),
                 BaseFormButton("Создать аккаунт",
                     color: Colors.white,
-                    onPressed: () => Navigator.pushNamed(context, "/register")),
+                    onPressed: () => Navigator.pushReplacementNamed(context, "/register")),
               ],
             ),
           ),

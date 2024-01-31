@@ -6,13 +6,12 @@ import 'package:bloc/bloc.dart';
 import 'package:ethereal_app/entity/user.dart';
 import 'package:meta/meta.dart';
 
-import '../assets/constants.dart';
-import '../entity/look.dart';
+import '../../assets/constants.dart';
+import '../../entity/look.dart';
 
 import 'package:http/http.dart' as http;
 
 part 'wall_event.dart';
-
 part 'wall_state.dart';
 
 class WallBloc extends Bloc<WallEvent, WallState> {

@@ -8,7 +8,7 @@ import 'package:ethereal_app/assets/constants.dart';
 import 'package:ethereal_app/entity/user.dart';
 import 'package:http/http.dart' as http;
 
-import '../entity/clothes.dart';
+import '../../entity/clothes.dart';
 
 part 'wardrobe_event.dart';
 part 'wardrobe_state.dart';

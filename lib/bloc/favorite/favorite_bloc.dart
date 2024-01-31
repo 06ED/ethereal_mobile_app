@@ -4,14 +4,13 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
-import '../assets/constants.dart';
-import '../entity/look.dart';
+import '../../assets/constants.dart';
+import '../../entity/look.dart';
 import 'package:http/http.dart' as http;
 
-import '../entity/user.dart';
+import '../../entity/user.dart';
 
 part 'favorite_event.dart';
-
 part 'favorite_state.dart';
 
 class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {

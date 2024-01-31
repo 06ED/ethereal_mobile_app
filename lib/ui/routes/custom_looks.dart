@@ -1,8 +1,7 @@
-import 'package:ethereal_app/bloc/wall_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../bloc/custom_looks_bloc.dart';
+import '../../bloc/custom_looks/custom_looks_bloc.dart';
 import '../../entity/clothes.dart';
 import '../../entity/look.dart';
 import '../widgets/navigation_bar.dart';
@@ -15,7 +14,11 @@ class CustomLooks extends StatefulWidget {
 }
 
 class _CustomLooksState extends State<CustomLooks> {
-  static const _icons = <String, IconData>{"Бизнесс": Icons.business_center_outlined, "Казуальный": Icons.casino_outlined, "Спортивный": Icons.sports_baseball_outlined };
+  static const _icons = <String, IconData>{
+    "Бизнесс": Icons.business_center_outlined,
+    "Казуальный": Icons.casino_outlined,
+    "Спортивный": Icons.sports_baseball_outlined
+  };
   late Map<String, List<Look>> looks;
 
   @override
@@ -44,7 +47,7 @@ class _CustomLooksState extends State<CustomLooks> {
                   ));
                   return;
                 }
-                Navigator.push(
+                Navigator.pushReplacement(
                     context, _buildRoute(entry.value, "${entry.key} стиль"));
               },
               child: Container(
