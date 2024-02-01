@@ -2,6 +2,7 @@ import 'package:ethereal_app/bloc/change_data/change_data_bloc.dart';
 import 'package:ethereal_app/bloc/favorite/favorite_bloc.dart';
 import 'package:ethereal_app/bloc/get_clothes/get_clothes_bloc.dart';
 import 'package:ethereal_app/bloc/login/login_bloc.dart';
+import 'package:ethereal_app/bloc/register/register_bloc.dart';
 import 'package:ethereal_app/bloc/wall/wall_bloc.dart';
 import 'package:ethereal_app/bloc/wardrobe/wardrobe_bloc.dart';
 import 'package:ethereal_app/ui/routes.dart';
@@ -27,7 +28,10 @@ class Main extends StatelessWidget {
               create: (context) => LoginBloc()..add(LoginInitEvent()),
               child: const Login(),
             ),
-        "/register": (context) => const Register(),
+        "/register": (context) => BlocProvider(
+              create: (context) => RegisterBloc(),
+              child: const Register(),
+            ),
         "/profile": (context) => const Profile(),
         "/change_data": (context) => BlocProvider(
               create: (context) => ChangeDataBloc(),
