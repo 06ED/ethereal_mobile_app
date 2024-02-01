@@ -1,4 +1,4 @@
-name: ethereal_app
+name: Ethereal
 description: Ethereal mobile app
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
