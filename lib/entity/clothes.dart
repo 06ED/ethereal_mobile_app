@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:ethereal_app/entity/entity.dart';
+import '/entity/entity.dart';
 
 class ClothesType extends Entity {
   final int id;

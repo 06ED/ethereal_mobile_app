@@ -1,5 +1,7 @@
-import 'package:ethereal_app/bloc/login/login_bloc.dart';
-import 'package:ethereal_app/ui/widgets/form.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import '/bloc/login/login_bloc.dart';
+import '/ui/widgets/form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
@@ -104,8 +106,8 @@ class _LoginState extends State<Login> {
           ),
           BaseFormButton("Создать аккаунт",
               color: Colors.white,
-              onPressed: () =>
-                  Navigator.pushReplacementNamed(context, "/register")),
+              onPressed: () => launchUrl(
+                  Uri.parse("https://etherealweb.onrender.com/register"))),
         ],
       ),
     );

@@ -1,5 +1,5 @@
-import 'package:ethereal_app/bloc/wall/wall_bloc.dart';
-import 'package:ethereal_app/ui/widgets/navigation_bar.dart';
+import '/bloc/wall/wall_bloc.dart';
+import '/ui/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

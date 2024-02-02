@@ -1,4 +1,4 @@
-import 'package:ethereal_app/entity/clothes.dart';
+import '/entity/clothes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

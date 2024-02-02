@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-import 'package:ethereal_app/assets/constants.dart';
+import '/assets/constants.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart' as http;
 

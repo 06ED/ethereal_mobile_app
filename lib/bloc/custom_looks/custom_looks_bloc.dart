@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
-import 'package:ethereal_app/entity/look.dart';
+import '/entity/look.dart';
 import 'package:meta/meta.dart';
 
 import 'package:http/http.dart' as http;

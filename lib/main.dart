@@ -1,12 +1,12 @@
-import 'package:ethereal_app/bloc/change_data/change_data_bloc.dart';
-import 'package:ethereal_app/bloc/favorite/favorite_bloc.dart';
-import 'package:ethereal_app/bloc/get_clothes/get_clothes_bloc.dart';
-import 'package:ethereal_app/bloc/login/login_bloc.dart';
-import 'package:ethereal_app/bloc/register/register_bloc.dart';
-import 'package:ethereal_app/bloc/wall/wall_bloc.dart';
-import 'package:ethereal_app/bloc/wardrobe/wardrobe_bloc.dart';
-import 'package:ethereal_app/ui/routes.dart';
-import 'package:ethereal_app/ui/routes/custom_looks.dart';
+import '/bloc/change_data/change_data_bloc.dart';
+import '/bloc/favorite/favorite_bloc.dart';
+import '/bloc/get_clothes/get_clothes_bloc.dart';
+import '/bloc/login/login_bloc.dart';
+import '/bloc/register/register_bloc.dart';
+import '/bloc/wall/wall_bloc.dart';
+import '/bloc/wardrobe/wardrobe_bloc.dart';
+import '/ui/routes.dart';
+import '/ui/routes/custom_looks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

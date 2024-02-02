@@ -1,11 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:ethereal_app/assets/constants.dart';
-import 'package:ethereal_app/entity/user.dart';
+import '/assets/constants.dart';
+import '/entity/user.dart';
 import 'package:http/http.dart' as http;
 
 import '../../entity/clothes.dart';

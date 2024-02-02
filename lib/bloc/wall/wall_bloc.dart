@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-import 'package:ethereal_app/entity/user.dart';
+import '/entity/user.dart';
 import 'package:meta/meta.dart';
 
 import '../../assets/constants.dart';

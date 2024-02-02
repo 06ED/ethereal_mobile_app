@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:ethereal_app/entity/clothes.dart';
-import 'package:ethereal_app/entity/entity.dart';
+import '/entity/clothes.dart';
+import '/entity/entity.dart';
 
 class Look extends Entity {
   final int id;
